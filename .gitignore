@@ -3,4 +3,5 @@
 .env
 npm-debug.log*
 /ui/npm-debug.log*
-/ui/dist/bundle.js
+/ui/dist
+/tmp
