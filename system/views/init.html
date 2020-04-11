@@ -10,7 +10,6 @@
     <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
     <!-- Place favicon.ico in the root directory -->
 
-    <script src="{{@BASE}}/ui/dist/bundle.js"></script>
   </head>
   <body>
     <!--[if lt IE 8]>
@@ -18,8 +17,8 @@
       <em>Please</em> upgrade your browser
       </h2>
     <![endif]-->
-    <div class="container my-5 py-5">
-        <div class="jumbotron">
+    <div class="container">
+        <div class="my-5 jumbotron">
             <h1 class="display-4 text-center">Welcome to this Systems of Recipes!</h1>
             <p class="lead text-center">We are Exciting that you enjoy this software</p>
             <hr class="my-4"/>
@@ -30,7 +29,7 @@
                   <i class="fas fa-book-medical fa-7x"></i>
                   <h4 class="my-3">New Accounts Here!</h4>
                 </div>
-                <button class="btn btn-lg btn-secondary my-2"><strong>Register</strong></button>
+                <a href="/register" class="btn btn-lg btn-secondary my-2"><strong>Register</strong></a>
               </div>
               <div class="card col-md-4">
                 <h3 class="card-header text-center"><i>Enter</i></h3>
@@ -43,5 +42,6 @@
             </div>
         </div>
     </div>
+    <script src="{{@BASE}}/ui/dist/bundle.js"></script>
   </body>
 </html>
