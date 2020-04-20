@@ -10,6 +10,7 @@ $f3->set('AUTOLOAD','system/controllers/;system/models/');
 // Declare database conection
 require_once "./system/database/dev.php";
 require_once "./system/database/conection.php";
+$f3->set('result',$db->exec('SELECT username FROM users'));
 // Declare Views
 $f3->set('UI','system/views/');
 // Declare routes
