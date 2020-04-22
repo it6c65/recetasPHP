@@ -1,11 +1,14 @@
 <?php namespace App\Controllers;
 
+use \App\Libraries\Auth as Auth;
 
 class Login extends BaseController
 {
+
 	public function index()
 	{
-		return view('welcome_message');
+		helper(['form','html']);
+		return view('enter');
 	}
 	public function register()
 	{
@@ -13,9 +16,14 @@ class Login extends BaseController
 	}
 	public function auth()
 	{
-		return view('enter');
+		$usr = $this->request->getPost('username');
+		$pw = $this->request->getPost('password');
+		$authentication = new Auth($usr,$pw);
+		if($authentication->validate){
+			route_to("/panel");
+		}else{
+			route_to("/login");
+		}
 	}
-
-	//--------------------------------------------------------------------
 
 }

@@ -21,7 +21,7 @@ CREATE TABLE recipes(
     id INT AUTO_INCREMENT NOT NULL,
     users_id INT NOT NULL,
     ingredients_id TINYINT NOT NULL,
-    nameof VARCHAR(40) NOT NULL,
+    recname VARCHAR(40) NOT NULL,
     estimated TIME,
     preparation TEXT NOT NULL,
     creation DATE NOT NULL,

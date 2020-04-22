@@ -10,7 +10,7 @@
   <body>
     <div class="container">
         <div class="my-5 jumbotron">
-            <h1 class="display-4 text-center">Welcome to this Systems of Recipes! </h1>
+            <h1 class="display-4 text-center">Welcome to this Systems of Recipes! <?= $username ?> </h1>
             <p class="lead text-center">We are Exciting that you enjoy this software</p>
             <hr class="my-4"/>
             <div class="row justify-content-around">

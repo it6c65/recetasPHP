@@ -33,7 +33,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
 $routes->get('/register', 'Login::register');
-$routes->get('/login', 'Login::auth');
+$routes->get('/login', 'Login::index');
+$routes->get('/auth', 'Login::auth');
+$routes->get('/panel', 'Login::index');
 
 /**
  * --------------------------------------------------------------------

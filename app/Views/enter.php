@@ -24,14 +24,27 @@
               <p class="lead text-center">Welcome to RecAdmin!</p>
               <hr class="my-4"/>
               <div class="row justify-content-center">
-                <form method="POST" action="#" class="col-md-8">
+                <?= form_open('login/auth', [ 'class' => 'col-md-8' ]) ?>
                   <div class="form-group">
                     <label for="usr"><strong>Username:</strong></label>
-                    <input class="form-control" name="usr" type="text" value=""/>
+                    <?= form_input(
+                      [
+                        'name' => 'username',
+                        'id' => 'username',
+                        'maxlength' => '30',
+                        'class' => 'form-control'
+                      ]
+                    ) ?>
                   </div>
                   <div class="form-group">
                     <label for="pw"><strong>Password:</strong></label>
-                    <input class="form-control" name="pw" type="password" value=""/>
+                    <?= form_password(
+                      [
+                        'name' => 'password',
+                        'id' => 'password',
+                        'class' => 'form-control'
+                      ]
+                    ) ?>
                   </div>
                   <div class="form-group text-center">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">
@@ -41,11 +54,11 @@
                       <i class="fas fa-reply"></i> &nbsp; Back
                     </a>
                   </div>
-                </form>
+                  <?= form_close() ?>
               </div>
           </div>
       </div>
     </div>
-    <script src="<?= base_url() ?>/js/dist/bundle.js"></script>
+    <?= script_tag('js/dist/bundle.js') ?>
   </body>
 </html>

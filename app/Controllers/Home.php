@@ -1,15 +1,14 @@
 <?php namespace App\Controllers;
 
+use \App\Models\UserModel as User;
 
 class Home extends BaseController
 {
 	public function index()
 	{
-		# test database
-		$db = \Config\Database::connect();
-		$query = $db->query('select * from users limit 1');
-		$row = $query->getRowArray();
-		return view('home', $row);
+		$user = new User();
+		$current = $user->find(1);
+		return view('home', $current);
 	}
 	public function home()
 	{
