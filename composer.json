@@ -1,6 +1,5 @@
 {
     "require": {
-        "bcosca/fatfree": "^3.7",
-        "vlucas/phpdotenv": "^4.1"
+        "codeigniter4/framework": "^4.0"
     }
 }

@@ -1,7 +1,8 @@
-/ui/node_modules
+/public/js/node_modules
 /vendor
 .env
 npm-debug.log*
-/ui/npm-debug.log*
-/ui/dist
-/tmp
+/public/js/npm-debug.log*
+/public/js/dist
+/writable/*
+!/writable/.htaccess
