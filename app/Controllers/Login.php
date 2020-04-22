@@ -20,9 +20,9 @@ class Login extends BaseController
 		$pw = $this->request->getPost('password');
 		$authentication = new Auth($usr,$pw);
 		if($authentication->validate){
-			route_to("/panel");
+			return redirect()->to("/panel");
 		}else{
-			route_to("/login");
+			return redirect()->to("/login");
 		}
 	}
 

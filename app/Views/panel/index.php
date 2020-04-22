@@ -14,6 +14,6 @@
   <body>
     <?php echo $this->include('partials/navbar') ?>
 
-  <script src="<?php echo base_url() ?>/ui/dist/bundle.js"></script>
+  <script src="<?php echo base_url() ?>/js/dist/bundle.js"></script>
   </body>
 </html>
