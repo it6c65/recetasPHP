@@ -2,11 +2,20 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
+use \App\Libraries\Auth as Auth;
 
-class Panel extends Controller
+class Panel extends BaseController
 {
     public function index(){
-        return view("panel/index");
+		helper(['form','html']);
+        $user_data = [
+            'user' => $this->session->get('username')
+        ];
+        return view("panel/index", $user_data);
+    }
+    public function exit(){
+        $this->session->logged = FALSE;
+        $this->session->destroy();
+        return redirect()->to("/");
     }
 }

@@ -20,6 +20,11 @@ class Login extends BaseController
 		$pw = $this->request->getPost('password');
 		$authentication = new Auth($usr,$pw);
 		if($authentication->validate){
+			$logUser = [
+				'username' => $usr,
+				'logged' => TRUE
+			];
+			$this->session->set($logUser);
 			return redirect()->to("/panel");
 		}else{
 			return redirect()->to("/login");

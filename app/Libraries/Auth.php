@@ -17,9 +17,9 @@ class Auth {
                ->where('password', $pass)
                ->get(1);
         if(count($query->getResultArray()) === 1){
-            $this->validate = true;
+            $this->validate = TRUE;
         }else {
-            $this->validate = false;
+            $this->validate = FALSE;
         }
     }
 }

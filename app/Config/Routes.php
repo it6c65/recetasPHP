@@ -36,6 +36,7 @@ $routes->get('/register', 'Login::register');
 $routes->get('/login', 'Login::index');
 $routes->get('/auth', 'Login::auth');
 $routes->get('/panel', 'Panel::index');
+$routes->get('/exit', 'Panel::exit');
 
 /**
  * --------------------------------------------------------------------
