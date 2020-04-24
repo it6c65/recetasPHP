@@ -1,14 +1,14 @@
 <?php namespace App\Controllers;
 
-use \App\Models\UserModel as User;
 
 class Home extends BaseController
 {
 	public function index()
 	{
-		$user = new User();
-		$current = $user->find(1);
-		return view('home', $current);
+		$data = [
+			'create_user' => $this->session->create_user
+		];
+		return view('home', $data);
 	}
 	public function home()
 	{

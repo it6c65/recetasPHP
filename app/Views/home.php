@@ -3,15 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Recipe's Management</title>
+    <title>Recipes Management</title>
     <meta name="description" content="recipes managements administration">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
   </head>
   <body>
     <div class="container">
         <div class="my-5 jumbotron">
-            <h1 class="display-4 text-center">Welcome to this Systems of Recipes! <?= $username ?> </h1>
+            <h1 class="display-4 text-center">Welcome to this Systems of Recipes! </h1>
             <p class="lead text-center">We are Exciting that you enjoy this software</p>
+            <?php if($create_user != NULL): ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <h3><?= $create_user ?></h3>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <?php endif ?>
             <hr class="my-4"/>
             <div class="row justify-content-around">
               <div class="card col-md-4">
