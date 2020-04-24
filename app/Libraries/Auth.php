@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Libraries;
-use CodeIgniter\Events\Events;
-use CodeIgniter\HTTP\Request as request;
-use CodeIgniter\HTTP\Message as response;
 
 class Auth {
     protected $user, $password;

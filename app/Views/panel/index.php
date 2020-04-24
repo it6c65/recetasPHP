@@ -13,6 +13,7 @@
   </head>
   <body>
     <?php echo $this->include('partials/navbar') ?>
+    <?php echo $this->include('partials/recipes') ?>
 
   <?= script_tag('js/dist/bundle.js') ?>
   </body>
