@@ -14,12 +14,17 @@ class Auth {
         $db = \Config\Database::connect();
         $query = $db->table('users')
                ->where('username',$user)
-               ->where('password', $pass)
                ->get(1);
         if(count($query->getResultArray()) === 1){
-            $this->validate = TRUE;
+            $this->user_exists = TRUE;
+            $current_user = $query->getRow();
+            if(password_verify($this->password, $current_user->password)){
+                $this->validate = TRUE;
+            }else{
+                $this->validate = FALSE;
+            }
         }else {
-            $this->validate = FALSE;
+            $this->user_exists = FALSE;
         }
     }
 }
