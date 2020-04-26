@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use CodeIgniter\I18N\Time;
 use \App\Models\RecModel as Recipe;
-use \Config\Database as db;
 
 class Recipes extends BaseController {
     public function new(){
@@ -31,28 +29,23 @@ class Recipes extends BaseController {
     public function index(){
     }
     public function show($id = null){
+        $recipe = new Recipe();
+        $current_recipe = $recipe->find(1);
+        return view("panel/show_recipes", [ 'recipes' => $current_recipe]);
     }
     public function edit($id = null){
     }
     public function update($id = null){
-        if($id === NULL){
-            return null;
-        }else{
-            $update_recipe = new Recipe();
-            $rec = [
-                'recname' => $this->request->getPost('rec_name'),
-                'estimated' => $this->request->getPost('time'),
-                'preparation' => $this->request->getPost('order')
-            ];
-            $update_recipe->update($id,$rec);
-        }
+        $update_recipe = new Recipe();
+        $rec = [
+            'recname' => $this->request->getPost('rec_name'),
+            'estimated' => $this->request->getPost('time'),
+            'preparation' => $this->request->getPost('order')
+        ];
+        $update_recipe->update($id,$rec);
     }
     public function delete($id = null){
-        if($id === NULL){
-            return NULL;
-        }else{
-            $delete_recipe = new Recipe();
-            $delete_recipe->delete($id);
-        }
+        $delete_recipe = new Recipe();
+        $delete_recipe->delete($id);
     }
 }

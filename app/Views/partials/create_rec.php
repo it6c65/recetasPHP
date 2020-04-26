@@ -32,7 +32,7 @@
             <?= form_input(
                 [
                 'name' => 'estimated',
-                'id' => 'time',
+                'id' => 'time_estimated',
                 'min' => '1',
                 'max' => '60',
                 'class' => 'form-control'
@@ -50,7 +50,8 @@
             'month' => "Months"
             ]
             ?>
-            <?= form_dropdown('estimated_type', $estimated_type,'hour', ['class' => "custom-select"]) ?>
+            <?= form_dropdown('estimated_type', $estimated_type,'hour',
+                              ['class' => "custom-select", 'id' => 'estimated_type_create']) ?>
           </div>
         </div>
         <div class="form-group">

@@ -4,4 +4,5 @@ import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 import 'bootstrap'
-$ = require 'jquery'
+import "./components/panel.coffee"
+import "./components/create_recipe.coffee"
