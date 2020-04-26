@@ -34,6 +34,7 @@ class Login extends BaseController
 		if($authentication->validate){
 			$logUser = [
 				'username' => $usr,
+				'identity' => $authentication->user_id,
 				'logged' => TRUE
 			];
 			$this->session->set($logUser);

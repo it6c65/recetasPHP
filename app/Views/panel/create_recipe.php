@@ -13,7 +13,7 @@
   </head>
   <body class="bg-light">
     <?php echo $this->include('partials/navbar') ?>
-    <?php echo $this->include('partials/recipes') ?>
+    <?php echo $this->include('partials/create_rec') ?>
 
   <?= script_tag('js/dist/bundle.js') ?>
   </body>

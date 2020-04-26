@@ -2,36 +2,33 @@
 
 use CodeIgniter\Database\Migration;
 
-class Tips extends Migration
+class RecipesIngredients extends Migration
 {
 	public function up()
 	{
 		$fields = [
-			'id' => [
-				'type' => 'TINYINT',
-				'auto_increment' => true
-			],
 			'recipes_id' => [
+				'type' => 'INT',
+			],
+			'ingredients_id' => [
+				'type' => 'TINYINT',
+				'unsigned' => true,
+			],
+			'quantity' => [
 				'type' => 'INT'
 			],
-			'tmp_name' => [
-				'type' => 'VARCHAR',
-				'constraint' => 40
-			],
-			'extras' => [
-				'type' => 'TEXT'
-			]
 		];
 		$this->forge->addField($fields);
 		$this->forge->addPrimaryKey('id');
+		$this->forge->addForeignKey('ingredients_id', 'ingredients', 'id', 'CASCADE', 'CASCADE');
 		$this->forge->addForeignKey('recipes_id', 'recipes', 'id', 'CASCADE', 'CASCADE');
-		$this->forge->createTable('tips');
+		$this->forge->createTable('recipes_ingredients');
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		$this->forge->dropTable('tips');
+		$this->forge->dropTable('recipes_ingredients');
 	}
 }

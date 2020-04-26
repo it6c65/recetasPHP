@@ -16,31 +16,28 @@ class Recipes extends Migration
 				'constraint' => 3,
 				'unsigned' => true
 			],
-			'ingredients_id' => [
-				'type' => 'TINYINT',
-				'unsigned' =>true,
-			],
 			'recname' => [
 				'type' => 'VARCHAR',
 				'constraint' => 40
 			],
 			'estimated' => [
-				'type' => 'TIME'
+				'type' => 'TINYINT',
+				'constraint' => 2
+			],
+			'estimated_type' => [
+				'type' => 'VARCHAR',
+				'constraint' => 10
 			],
 			'preparation' => [
 				'type' => 'TEXT'
 			],
 			'creation' => [
 				'type' => 'DATE'
-			],
-			'img' => [
-				'type' => 'TEXT'
 			]
 		];
 		$this->forge->addField($fields);
 		$this->forge->addPrimaryKey('id');
 		$this->forge->addForeignKey('users_id', 'users', 'id', 'CASCADE', 'CASCADE');
-		$this->forge->addForeignKey('ingredients_id', 'ingredients', 'id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('recipes');
 	}
 
@@ -48,6 +45,6 @@ class Recipes extends Migration
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('recipes');
 	}
 }

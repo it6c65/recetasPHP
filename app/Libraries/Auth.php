@@ -16,6 +16,7 @@ class Auth {
             $this->user_exists = TRUE;
             $current_user = $query->getRow();
             if(password_verify($this->password, $current_user->password)){
+                $this->user_id = $current_user->id;
                 $this->validate = TRUE;
             }else{
                 $this->validate = FALSE;

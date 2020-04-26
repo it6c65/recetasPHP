@@ -4,9 +4,9 @@
       <h1>Welcome <?= $user ?>!</h1>
     </div>
     <div class="my-5">
-        <button class="btn btn-info btn-block">
+        <a href="<?= base_url() ?>/recipes/new" class="btn btn-info btn-block">
             <i class="fas fa-plus"></i> Create Recipe
-        </button>
+        </a>
     </div>
     <h2><strong>Your Recipes</strong></h2>
     <div class="row">

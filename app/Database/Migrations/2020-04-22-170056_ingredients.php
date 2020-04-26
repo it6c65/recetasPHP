@@ -12,9 +12,6 @@ class Ingredients extends Migration
 				'unsigned' => true,
 				'auto_increment' => true
 			],
-			'quantity' => [
-				'type' => 'INT'
-			],
 			'times' => [
 				'type' => 'INT',
 				'constraint' => 2,
