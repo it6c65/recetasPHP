@@ -8,14 +8,14 @@ use \App\Models\RecModel as Recipe;
 class Panel extends BaseController
 {
     public function index(){
-		helper(['form','html']);
         $recipes = new Recipe();
         $recipe_list = $recipes->where('users_id', $this->session->identity)->findAll();
         $user_data = [
             'user' => $this->session->get('username'),
-            'recipes' => $recipe_list
+            'recipes' => $recipe_list,
+            'title' => "Panel Recipes"
         ];
-        return view("panel/index", $user_data);
+        return view("panel", $user_data);
     }
     public function exit(){
         $this->session->logged = FALSE;

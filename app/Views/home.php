@@ -1,13 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Recipes Management</title>
-    <meta name="description" content="recipes managements administration">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  </head>
-  <body>
+<?php echo $this->include('partials/html/header') ?>
     <div class="container">
         <div class="my-5 jumbotron">
             <h1 class="display-4 text-center">Welcome to this Systems of Recipes! </h1>
@@ -41,6 +32,4 @@
             </div>
         </div>
     </div>
-    <script src="<?= base_url() ?>/js/dist/bundle.js"></script>
-  </body>
-</html>
+<?php echo $this->include('partials/html/footer') ?>

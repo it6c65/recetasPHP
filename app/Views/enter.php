@@ -1,22 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
-    <!-- Place favicon.ico in the root directory -->
-
-  </head>
-  <body>
-    <!--[if lt IE 8]>
-      <h2> You are using an <strong>outdated</strong> browser.
-      <em>Please</em> upgrade your browser
-      </h2>
-    <![endif]-->
+<?php echo $this->include('partials/html/header') ?>
     <div class="container">
       <div class="row justify-content-center align-items-center">
           <div class="my-5 jumbotron col-md-6">
@@ -59,6 +41,4 @@
           </div>
       </div>
     </div>
-    <?= script_tag('js/dist/bundle.js') ?>
-  </body>
-</html>
+<?php echo $this->include('partials/html/footer') ?>

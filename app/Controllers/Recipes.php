@@ -5,11 +5,11 @@ use \App\Models\RecModel as Recipe;
 
 class Recipes extends BaseController {
     public function new(){
-		helper(['form','html']);
         $user_data = [
-            'user' => $this->session->get('username')
+            'user' => $this->session->get('username'),
+            'title' => "Create Recipes"
         ];
-        return view("panel/create_recipe", $user_data);
+        return view("recipes/create", $user_data);
     }
     public function create(){
         $rec = [
@@ -20,7 +20,7 @@ class Recipes extends BaseController {
         ];
         $new_recipe = new Recipe();
         if($new_recipe->insert($rec) === FALSE){
-            return view('panel/create_recipe', ['errors' => $new_recipe->errors()]);
+            return view('recipes/create', ['errors' => $new_recipe->errors()]);
         }else{
             $this->session->setFlashdata('create_recipe', 'You have a new Recipe');
             return redirect()->to("/panel");
@@ -31,13 +31,13 @@ class Recipes extends BaseController {
     public function show($id = null){
     }
     public function edit($id = null){
-		helper(['form','html']);
         $recipe = new Recipe();
         $user_data = [
             'user' => $this->session->get('username'),
-            'current_recipe' => $recipe->find($id)
+            'current_recipe' => $recipe->find($id),
+            'title' => "Editing " . $recipe->recname
         ];
-        return view("panel/edit_recipe", $user_data);
+        return view("recipes/edit", $user_data);
     }
     public function update($id = null){
         $update_recipe = new Recipe();

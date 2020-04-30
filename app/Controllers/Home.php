@@ -6,15 +6,9 @@ class Home extends BaseController
 	public function index()
 	{
 		$data = [
-			'create_user' => $this->session->create_user
+			'create_user' => $this->session->create_user,
+			'title' => 'Welcome RecAdmin'
 		];
 		return view('home', $data);
 	}
-	public function home()
-	{
-		return view('welcome_message');
-	}
-
-	//--------------------------------------------------------------------
-
 }

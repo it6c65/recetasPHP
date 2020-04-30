@@ -8,22 +8,20 @@ class Login extends BaseController
 
 	public function index()
 	{
-		helper(['form','html']);
-		return view('enter');
+		return view('enter', [ 'title' => 'Login' ]);
 	}
 	public function register()
 	{
-		helper(['form','html']);
 		if($this->request->getMethod() == "post"){
 			$this->addUser();
 			if($this->warning_create_user == NULL){
 				$this->session->setFlashdata('create_user', 'Welcome, enjoy you new account');
 				return redirect()->to("/");
 			}else{
-				return view('register', [ "errors" => $this->warning_create_user]);
+				return view('register', [ "title" => "Register", "errors" => $this->warning_create_user]);
 			}
 		}else{
-			return view('register');
+			return view('register', [ "title" => "Register" ]);
 		}
 	}
 	public function auth()
