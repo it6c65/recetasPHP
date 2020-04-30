@@ -10,7 +10,7 @@ class Panel extends BaseController
     public function index(){
 		helper(['form','html']);
         $recipes = new Recipe();
-        $recipe_list = $recipes->findAll();
+        $recipe_list = $recipes->where('users_id', $this->session->identity)->findAll();
         $user_data = [
             'user' => $this->session->get('username'),
             'recipes' => $recipe_list

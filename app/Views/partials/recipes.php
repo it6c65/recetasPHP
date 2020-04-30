@@ -9,6 +9,11 @@
         </a>
     </div>
     <h2><strong>Your Recipes</strong></h2>
+        <?php if( $recipes == NULL ): ?>
+          <div class="text-center">
+             <h2>There is nothing here!</h2>
+          </div>
+        <?php endif ?>
     <div class="row">
         <?php foreach( $recipes as $rec): ?>
         <div class="col-md-4 py-2">
