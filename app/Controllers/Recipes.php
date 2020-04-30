@@ -29,20 +29,26 @@ class Recipes extends BaseController {
     public function index(){
     }
     public function show($id = null){
-        $recipe = new Recipe();
-        $current_recipe = $recipe->find(1);
-        return view("panel/show_recipes", [ 'recipes' => $current_recipe]);
     }
     public function edit($id = null){
+		helper(['form','html']);
+        $recipe = new Recipe();
+        $user_data = [
+            'user' => $this->session->get('username'),
+            'current_recipe' => $recipe->find($id)
+        ];
+        return view("panel/edit_recipe", $user_data);
     }
     public function update($id = null){
         $update_recipe = new Recipe();
         $rec = [
-            'recname' => $this->request->getPost('rec_name'),
-            'estimated' => $this->request->getPost('time'),
+            'recname' => $this->request->getPost('recname'),
+            'estimated' => $this->request->getPost('estimated'),
+            'estimated_type' => $this->request->getPost('estimated_type'),
             'preparation' => $this->request->getPost('order')
         ];
         $update_recipe->update($id,$rec);
+        return redirect()->to("/panel");
     }
     public function delete($id = null){
         $delete_recipe = new Recipe();
