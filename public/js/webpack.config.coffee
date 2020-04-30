@@ -18,7 +18,15 @@ config =
             {
                 test: /\.coffee$/,
                 use: 'coffee-loader'
-            }
+            },
+            {
+                test: /\.(png|jpe?g)$/i,
+                use: [
+                  loader: 'file-loader',
+                  options:
+                    publicPath: 'js/dist'
+                  ]
+              }
         ]
 
 module.exports = config
