@@ -24,7 +24,7 @@ config =
                 use: [
                   loader: 'file-loader',
                   options:
-                    publicPath: 'js/dist'
+                    publicPath: '/js/dist'
                   ]
               }
         ]

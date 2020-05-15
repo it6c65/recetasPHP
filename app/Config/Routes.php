@@ -37,7 +37,7 @@ $routes->get('/login', 'Login::index');
 $routes->get('/auth', 'Login::auth');
 $routes->get('/panel', 'Panel::index');
 $routes->get('/exit', 'Panel::exit');
-$routes->resource('recipes', ['websafe' => 1]);
+$routes->resource('recipes', ['websafe' => 1, 'except' => 'index,show']);
 
 /**
  * --------------------------------------------------------------------

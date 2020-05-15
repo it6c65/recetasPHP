@@ -26,10 +26,6 @@ class Recipes extends BaseController {
             return redirect()->to("/panel");
         }
     }
-    public function index(){
-    }
-    public function show($id = null){
-    }
     public function edit($id = null){
         $recipe = new Recipe();
         $user_data = [

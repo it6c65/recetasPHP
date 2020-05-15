@@ -1,5 +1,5 @@
 <main id="recipes" class="bg-light">
-  <div class="container py-5">
+  <div class="container py-5 my-5">
     <div class="text-center">
       <h1>Welcome <strong><?= $user ?></strong>!</h1>
     </div>
