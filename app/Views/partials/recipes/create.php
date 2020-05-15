@@ -55,6 +55,11 @@
           </div>
         </div>
         <div class="form-group">
+          <button class="btn btn-secondary btn-block" id="add_ing"> <i class="fas fa-plus"></i> Add ingredients</button>
+          <div id="list_ingredients">
+          </div>
+        </div>
+        <div class="form-group">
         <label for="order"><strong>Preparations:</strong></label>
         <?= form_textarea(
             [
