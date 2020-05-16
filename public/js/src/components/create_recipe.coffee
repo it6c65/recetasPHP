@@ -41,3 +41,10 @@ $ ->
       e.preventDefault()
       $("#ing-#{number}").remove()
     ingredientStorage.setItem('number', String (Number(number) + 1))
+
+$('.editing-delete-ing').on "click", ->
+  result = confirm "Are you sure?"
+  if result is yes
+    delete_id = $(this).attr('data-ingred-id')
+    $("#ing-"+delete_id).remove()
+  else

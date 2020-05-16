@@ -58,6 +58,18 @@
           </div>
         </div>
         <div class="form-group">
+          <button class="btn btn-secondary btn-block" id="add_ing"> <i class="fas fa-plus"></i> Add ingredients</button>
+          <div id="list_ingredients">
+            <?php foreach($list_ingred as $ingredients): ?>
+                <div class='row py-3 px-5' id='ing-<?= $ingredients->id ?>' class='ingredients'>
+                    <input type='text' placeholder='Nombre' name='ingredients[name][]' class='form-control col-md-5' value='<?= $ingredients->name ?>' required />
+                    <input type='number' placeholder='Cantidad' name='ingredients[quantity][]' class='form-control offset-md-1 col-md-5' value='<?= $ingredients->quantity ?>' required />
+                    <a class='btn editing-delete-ing' data-ingred-id=<?= $ingredients->id ?>><i class='fas fa-times fa-2x'></i></a>
+                </div>
+            <?php endforeach ?>
+          </div>
+        </div>
+        <div class="form-group">
         <label for="order"><strong>Preparations:</strong></label>
         <?= form_textarea(
             [

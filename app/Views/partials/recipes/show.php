@@ -68,6 +68,25 @@
                           <?= $rec['preparation'] ?>
                         </div>
                       </div>
+                      <h3 class="my-2">Ingredients</h3>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($ingredients as $ings): ?>
+                                <?php if($ings->recipes_id == $rec['id']): ?>
+                                  <tr>
+                                    <td><?= $ings->name ?></td>
+                                    <td><?= $ings->quantity ?></td>
+                                  </tr>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </tbody>
+                      </table>
                     </div>
                     <div class="modal-footer bg-light">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">
