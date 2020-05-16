@@ -1,4 +1,12 @@
 $ = require 'jquery'
+ingredientStorage = window.localStorage
+
+getBaseUrl = () ->
+  local = window.location
+  base_url = local.protocol + "//" + local.host + "/"
+
+if window.location isnt getBaseUrl()+"recipes/new"
+  ingredientStorage.clear();
 
 $ ->
   $('#estimated_type_create').on "change", ->
@@ -18,17 +26,18 @@ $ ->
 
 $ ->
   $('#add_ing').on "click", (e) ->
-    e.preventDefault();
-    number = $('.ingredients').length
+    e.preventDefault()
+    number = ingredientStorage.getItem('number')
     $('#list_ingredients').append(
       "
         <div class='row py-3 px-5' id='ing-#{number}' class='ingredients'>
-          <input type='text' placeholder='Nombre' name='ingredients[name]' class='form-control col-md-5' />
-          <input type='number' placeholder='Cantidad' name='ingredients[quantity]' class='form-control offset-md-1 col-md-5' />
+          <input type='text' placeholder='Nombre' name='ingredients[name][]' class='form-control col-md-5' required />
+          <input type='number' placeholder='Cantidad' name='ingredients[quantity][]' class='form-control offset-md-1 col-md-5' required />
           <a class='btn delete-ing'><i class='fas fa-times fa-2x'></i></a>
         </div>
       "
     )
-    $('a.btn.delete-ing').click (e, id) ->
+    $('a.btn.delete-ing').click (e) ->
       e.preventDefault()
       $("#ing-#{number}").remove()
+    ingredientStorage.setItem('number', String (Number(number) + 1))

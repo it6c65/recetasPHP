@@ -8,24 +8,25 @@ class Ingredients extends Migration
 	{
 		$fields = [
 			'id' => [
-				'type' => 'TINYINT',
+				'type' => 'INT',
 				'unsigned' => true,
 				'auto_increment' => true
 			],
-			'times' => [
-				'type' => 'INT',
-				'constraint' => 2,
+			'recipes_id' => [
+				'type' => 'INT'
 			],
-			'available' => [
-				'type' => 'BOOL'
-			],
-			'description' => [
+			'name' => [
 				'type' => 'VARCHAR',
 				'constraint' => 255
+			],
+			'quantity' => [
+				'type' => 'INT',
+				'constraint' => 6
 			]
 		];
 		$this->forge->addField($fields);
 		$this->forge->addPrimaryKey('id');
+		$this->forge->addForeignKey('recipes_id', 'recipes', 'id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('ingredients');
 	}
 

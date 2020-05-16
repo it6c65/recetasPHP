@@ -22,6 +22,22 @@ class Recipes extends BaseController {
         if($new_recipe->insert($rec) === FALSE){
             return view('recipes/create', ['errors' => $new_recipe->errors()]);
         }else{
+            $ingredients = $this->request->getPost('ingredients');
+            $number_ings = sizeof($ingredients["name"]);
+            $db = \Config\Database::connect();
+            $list_recipes = $db->table("recipes");
+            $last_recipe = $list_recipes->orderBy('id', 'DESC')->get(1)->getRow();
+            $add_ingredients = $db->table('ingredients');
+            for ($i = 0; $i < $number_ings; ++$i) {
+                $add_ingredients->insert(
+                    [
+                        'name' => $ingredients["name"][$i],
+                        'recipes_id' => $last_recipe->id,
+                        'quantity' => $ingredients["quantity"][$i]
+                    ]
+                );
+            }
+
             $this->session->setFlashdata('create_recipe', 'You have a new Recipe');
             return redirect()->to("/panel");
         }
